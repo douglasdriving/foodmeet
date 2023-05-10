@@ -1,13 +1,9 @@
 import DinnerListItem from "./dinnerListItem/dinnerListItem";
+import CreateMeetForm from "./createMeetForm/createMeetForm";
 
 export default function Dinners() {
 
   const daylist = ["Sunday", "Monday", "Tuesday", "Wednesday ", "Thursday", "Friday", "Saturday"];
-
-  //get todays day name
-  const today = new Date();
-  const day = today.getDay();
-  const todayName = daylist[day];
 
   //get name of day after tomorrow
   const dayIn2 = new Date();
@@ -25,7 +21,8 @@ export default function Dinners() {
       textAlign: 'left',
       // border: '2px solid red',
     }}>
-      <p><b>Upcoming dinners in Buenos Aires</b></p>
+      <p><b>Upcoming food meets in Buenos Aires</b></p>
+      <CreateMeetForm />
       <div style={{
         overflowY: 'scroll', // Enable vertical scrolling
         height: '60vh', // Limit the height 
