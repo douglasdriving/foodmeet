@@ -1,5 +1,5 @@
 import DinnerListItem from "./dinnerListItem/dinnerListItem";
-import CreateMeetForm from "./createMeetForm/createMeetForm";
+import CreateMeetModal from "./createMeetModal/createMeetModal";
 
 export default function Dinners() {
 
@@ -22,7 +22,7 @@ export default function Dinners() {
       // border: '2px solid red',
     }}>
       <p><b>Upcoming food meets in Buenos Aires</b></p>
-      <CreateMeetForm />
+      <CreateMeetModal />
       <div style={{
         overflowY: 'scroll', // Enable vertical scrolling
         height: '60vh', // Limit the height 
