@@ -124,3 +124,22 @@ input{
   width: 100%;
   box-sizing: border-box;
 }
+textarea{
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  height: 4.5rem;
+}
+select{
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
