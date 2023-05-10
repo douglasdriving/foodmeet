@@ -69,7 +69,7 @@ p {
 
 a {
   font-size: 1rem;
-  text-decoration: 'underline';
+  color: rgb(0, 28, 128);
 }
 
 button {
@@ -83,6 +83,22 @@ button {
   cursor: pointer;
   font-weight: bold;
 }
+
+button:disabled {
+  opacity: 0.5;
+  outline: none;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: none !important; /* Disable transitions */
+  animation: none !important; /* Disable animations */
+}
+
+button:disabled:active, 
+button:disabled:focus {
+  background-color: inherit;
+  visibility: visible !important; /* Ensure the button is always visible */
+}
+
 
 /* MODALS */
 .modal {

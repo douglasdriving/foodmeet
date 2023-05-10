@@ -7,8 +7,10 @@ export default function CreateMeetModal() {
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [created, setCreated] = useState(false);
+  const [meetInfo, setMeetInfo] = useState({});
 
-  function onCreate() {
+  function onCreate(restaurant, datetime, seats, name, inviation, maps) {
+    setMeetInfo({ restaurant, datetime, seats, name, inviation, maps });
     setCreated(true);
   }
 
@@ -27,12 +29,12 @@ export default function CreateMeetModal() {
           <CreateMeetForm create={onCreate} />
           :
           <CreateMeetConfirmation
-            restaurant='Burger Joint'
-            datetime={new Date()}
-            seats={6}
-            name='Sebastian'
-            inviation='Hey Everyone! Thought it would be cool to meet up for some burgers and beers. I love this place and its great for socializing'
-            maps='https://goo.gl/maps/WaRvtwiWeunDVwfK8'
+            restaurant={meetInfo.restaurant}
+            datetime={meetInfo.datetime}
+            seats={meetInfo.seats}
+            name={meetInfo.name}
+            inviation={meetInfo.inviation}
+            maps={meetInfo.maps}
           />
         }
       </Modal>

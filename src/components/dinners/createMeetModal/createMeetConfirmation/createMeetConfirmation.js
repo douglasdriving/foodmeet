@@ -11,19 +11,25 @@ export default function CreateMeetConfirmation(props) {
     <div style={{ textAlign: 'center' }}>
       <h1>Meet Created!</h1>
       <b>Your meet is now visible and others can sign up for it.</b>
+
       <div style={{
         textAlign: 'left',
-        border: '2px solid white',
+        // border: '2px solid white',
         padding: '1rem',
         borderRadius: '1rem',
         marginTop: '1rem',
+        backgroundColor: 'white',
+        color: 'black',
       }}>
-        <h3>{restaurant}</h3>
+        <h3 style={{ marginTop: 0, marginBottom: '0.5rem' }}>Meet at {restaurant}</h3>
         <p>{inviation}</p>
-        <p>{date + ' at ' + time}</p>
-        <p>{name}, {seats} seats</p>
-        <a style={{ wordBreak: 'break-word' }}>{maps}</a>
+        <p>📅 {date}</p>
+        <p>⏰ {time}</p>
+        <p>👤 {name}</p>
+        <p>🪑 {seats} seats</p>
+        <p>📍 <a style={{ wordBreak: 'break-all' }} href={maps}>{maps}</a></p>
       </div>
+
     </div>
   );
 }
