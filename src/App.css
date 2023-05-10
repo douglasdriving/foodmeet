@@ -167,3 +167,16 @@ select {
   width: 100%;
   box-sizing: border-box;
 }
+
+/* custom items */
+.dinnerListItem{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: white;
+  color: black;
+}

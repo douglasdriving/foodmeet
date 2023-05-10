@@ -1,7 +1,11 @@
 // import { useEffect, useState } from "react";
 import { getDateTimeText } from "../../../scripts/dateTimeFunction";
+import MeetSignUpModal from "./meetSignUpModal/meetSignUpModal";
+import { useState } from "react";
 
 export default function DinnerListItem({ meet }) {
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const dateString = getDateTimeText(meet.datetime);
   let seatsTaken = meet.guests.length + 1;
@@ -9,26 +13,31 @@ export default function DinnerListItem({ meet }) {
     seatsTaken = meet.seats;
   }
 
+  function handleOnClick() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   return (
-    <div style={{
-      // border: '2px solid blue',
-      backgroundColor: (meet.userCreated ? 'lightblue' : 'white'),
-      color: 'black',
-      textAlign: 'left',
-      padding: '0.5rem',
-      marginBottom: '0.5rem',
-      flexDirection: 'row',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      borderRadius: '0.5rem',
-    }}>
-      <div>
-        <b>{meet.restaurant}</b>
-        <p style={{ marginBottom: 0 }}>{dateString}</p>
+    <>
+
+      <div
+        className="dinnerListItem"
+        onClick={handleOnClick}
+      >
+        <div>
+          <b>{meet.restaurant}</b>
+          <p style={{ marginBottom: 0 }}>{dateString}</p>
+        </div>
+        <p style={{ marginBottom: 0, color: (seatsTaken === meet.seats ? 'red' : 'black') }}>{seatsTaken}/{meet.seats}</p>
       </div>
-      <p style={{ marginBottom: 0, color: (seatsTaken === meet.seats ? 'red' : 'black') }}>{seatsTaken}/{meet.seats}</p>
-    </div>
+
+      {isOpen && <MeetSignUpModal meet={meet} close={closeModal} />}
+
+    </>
   );
 
 }
