@@ -36,6 +36,7 @@ export default function CreateMeetModal({addMeet}) {
             name={meetInfo.name}
             invitation={meetInfo.invitation}
             map={meetInfo.map}
+            closeModal={closeModal}
           />
         }
       </Modal>

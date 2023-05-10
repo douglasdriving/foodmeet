@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { getDateTimeText } from "../../../images/dateTimeFunction";
+// import { useEffect, useState } from "react";
+import { getDateTimeText } from "../../../scripts/dateTimeFunction";
 
 export default function DinnerListItem({ meet }) {
 
@@ -12,7 +12,7 @@ export default function DinnerListItem({ meet }) {
   return (
     <div style={{
       // border: '2px solid blue',
-      backgroundColor: 'white',
+      backgroundColor: (meet.userCreated ? 'lightblue' : 'white'),
       color: 'black',
       textAlign: 'left',
       padding: '0.5rem',
@@ -27,7 +27,7 @@ export default function DinnerListItem({ meet }) {
         <b>{meet.restaurant}</b>
         <p style={{ marginBottom: 0 }}>{dateString}</p>
       </div>
-      <p style={{ marginBottom: 0 }}>{seatsTaken}/{meet.seats}</p>
+      <p style={{ marginBottom: 0, color: (seatsTaken === meet.seats ? 'red' : 'black') }}>{seatsTaken}/{meet.seats}</p>
     </div>
   );
 

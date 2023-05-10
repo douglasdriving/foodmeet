@@ -16,7 +16,6 @@ export function getDateTimeText(date) {
   const dateObj = new Date(date);
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const dayOfWeek = days[datetimeObj.getDay()];
-  const dateText = datetimeObj.toLocaleDateString();
   const timeText = datetimeObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   if (dateObj.getDate() === today.getDate()) {
     return 'Today ' + timeText;

@@ -1,5 +1,5 @@
-import { type } from "@testing-library/user-event/dist/type";
-import { useEffect } from "react";
+// import { type } from "@testing-library/user-event/dist/type";
+// import { useEffect } from "react";
 
 export default function CreateMeetConfirmation(props) {
 
@@ -11,7 +11,7 @@ export default function CreateMeetConfirmation(props) {
   const time = datetimeObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={{ textAlign: 'center'}}>
       <h1>Meet Created!</h1>
       <b>Your meet is now visible and others can sign up for it.</b>
 
@@ -32,6 +32,8 @@ export default function CreateMeetConfirmation(props) {
         <p>🪑 {seats} seats</p>
         <p>📍 <a style={{ wordBreak: 'break-all' }} href={map}>{map}</a></p>
       </div>
+
+      <button onClick={props.closeModal} style={{padding: '1rem', marginTop: '1rem', backgroundColor: 'gray', minWidth: '50vw'}}>Close</button>
 
     </div>
   );

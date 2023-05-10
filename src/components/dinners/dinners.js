@@ -1,7 +1,7 @@
 import DinnerListItem from "./dinnerListItem/dinnerListItem";
 import CreateMeetModal from "./createMeetModal/createMeetModal";
 import { useState } from 'react';
-import { getDateTime } from "../../images/dateTimeFunction";
+import { getDateTime } from "../../scripts/dateTimeFunction";
 
 export default function Dinners() {
 
@@ -35,8 +35,12 @@ export default function Dinners() {
     }
   ]);
 
-  function addMeet(info) {
-    console.log('added meet to list: ', info);
+  function addMeet(newMeet) {
+    newMeet.guests = [];
+    newMeet.userCreated = true;
+    const newMeetArr = [...meets, newMeet];
+    newMeetArr.sort((a, b) => a.datetime - b.datetime);
+    setMeets(newMeetArr);
   }
 
   return (
