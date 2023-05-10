@@ -3,15 +3,16 @@ import Modal from '../../modal/modal';
 import CreateMeetForm from './createMeetForm/createMeetForm';
 import CreateMeetConfirmation from './createMeetConfirmation/createMeetConfirmation';
 
-export default function CreateMeetModal() {
+export default function CreateMeetModal({addMeet}) {
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [created, setCreated] = useState(false);
   const [meetInfo, setMeetInfo] = useState({});
 
-  function onCreate(restaurant, datetime, seats, name, inviation, maps) {
-    setMeetInfo({ restaurant, datetime, seats, name, inviation, maps });
+  function onCreate(info) {
+    setMeetInfo(info);
     setCreated(true);
+    addMeet(info);
   }
 
   function closeModal() {
@@ -33,8 +34,8 @@ export default function CreateMeetModal() {
             datetime={meetInfo.datetime}
             seats={meetInfo.seats}
             name={meetInfo.name}
-            inviation={meetInfo.inviation}
-            maps={meetInfo.maps}
+            invitation={meetInfo.invitation}
+            map={meetInfo.map}
           />
         }
       </Modal>

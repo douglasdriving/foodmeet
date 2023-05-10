@@ -1,11 +1,14 @@
+import { type } from "@testing-library/user-event/dist/type";
+import { useEffect } from "react";
+
 export default function CreateMeetConfirmation(props) {
 
-  const { restaurant, datetime, seats, name, inviation, maps } = props;
+  const { restaurant, datetime, seats, name, invitation, map } = props;
 
   //turn datetime into text that displays dae and time
-  const date = datetime.toLocaleDateString();
-  //turn time to it only displays hours and minutes
-  const time = datetime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const datetimeObj = new Date(datetime);
+  const date = datetimeObj.toLocaleDateString();
+  const time = datetimeObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   return (
     <div style={{ textAlign: 'center' }}>
@@ -22,12 +25,12 @@ export default function CreateMeetConfirmation(props) {
         color: 'black',
       }}>
         <h3 style={{ marginTop: 0, marginBottom: '0.5rem' }}>Meet at {restaurant}</h3>
-        <p>{inviation}</p>
+        <p>{invitation}</p>
         <p>📅 {date}</p>
         <p>⏰ {time}</p>
         <p>👤 {name}</p>
         <p>🪑 {seats} seats</p>
-        <p>📍 <a style={{ wordBreak: 'break-all' }} href={maps}>{maps}</a></p>
+        <p>📍 <a style={{ wordBreak: 'break-all' }} href={map}>{map}</a></p>
       </div>
 
     </div>

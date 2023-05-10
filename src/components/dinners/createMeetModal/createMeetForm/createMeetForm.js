@@ -13,7 +13,9 @@ export default function CreateMeetForm({ create }) {
 
   const [createError, setCreateError] = useState(false);
 
-  function checkFormFilled(lastValueSet) {
+  function formValueChanged(lastValueSet) {
+
+    setCreateError(false);
 
     if (!lastValueSet || lastValueSet === '') {
       setFormFilled(false);
@@ -28,18 +30,32 @@ export default function CreateMeetForm({ create }) {
       && name && name !== ''
       && invitation && invitation !== ''
     );
-    
+
     if (formFilled !== allFieldsHasValues) {
       setFormFilled(allFieldsHasValues);
     }
   }
 
   function handleCreatePress() {
+
+    //make sure form is filled out
     if (!formFilled) {
       setCreateError('Please fill out all the fields first');
       return;
     }
-    console.log('create meet: ', restaurant, map, datetime, seats, name, invitation);
+
+    //create meet
+    create({ restaurant, map, datetime, seats, name, invitation });
+
+    //reset form
+    setRestaurant('');
+    setMap('');
+    setDatetime();
+    setSeats();
+    setName('');
+    setInvitation('');
+    setFormFilled(false);
+
   }
 
   return (
@@ -53,22 +69,22 @@ export default function CreateMeetForm({ create }) {
         <input
           type="text"
           placeholder='Name of the restaurant'
-          onChange={(e) => { setRestaurant(e.target.value); checkFormFilled(e.target.value); }}
+          onChange={(e) => { setRestaurant(e.target.value); formValueChanged(e.target.value); }}
         />
 
         <p className='inputLabel'>Map</p>
-        <input type="text" placeholder='Paste google maps link'
-          onChange={(e) => { setMap(e.target.value); checkFormFilled(e.target.value); }}
+        <input type="text" placeholder='Paste google map link'
+          onChange={(e) => { setMap(e.target.value); formValueChanged(e.target.value); }}
         />
 
         <p className='inputLabel'>Date & Time</p>
         <input type="datetime-local"
-          onChange={(e) => { setDatetime(e.target.value); checkFormFilled(e.target.value); }}
+          onChange={(e) => { setDatetime(new Date(e.target.value)); formValueChanged(e.target.value); }}
         />
 
         <p className='inputLabel'>Seats Reserved</p>
         <select
-          onChange={(e) => { setSeats(e.target.value); checkFormFilled(e.target.value); console.log('seats changed') }}
+          onChange={(e) => { setSeats(e.target.value); formValueChanged(e.target.value); }}
         >
           <option value="">--Please choose an option--</option>
           {[3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((value) =>
@@ -78,14 +94,14 @@ export default function CreateMeetForm({ create }) {
 
         <p className='inputLabel'>Reservation Name</p>
         <input type="text" placeholder='Name on the reservation'
-          onChange={(e) => { setName(e.target.value); checkFormFilled(e.target.value) }}
+          onChange={(e) => { setName(e.target.value); formValueChanged(e.target.value) }}
         />
 
         <p className='inputLabel'>Invitation</p>
         <textarea
           name="Invitation"
           placeholder={`Write something exciting about the meet!`}
-          onChange={(e) => { setInvitation(e.target.value); checkFormFilled(e.target.value) }}
+          onChange={(e) => { setInvitation(e.target.value); formValueChanged(e.target.value) }}
         />
 
       </div>
