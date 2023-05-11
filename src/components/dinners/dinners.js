@@ -54,10 +54,12 @@ export default function Dinners() {
         overflowY: 'scroll', // Enable vertical scrolling
         height: '60vh', // Limit the height 
       }}>
-        {meets.map((meet, i) => <DinnerListItem
-          meet={meet}
-          key={i}
-        />)}
+        {meets.map((meet, i) =>
+          <DinnerListItem
+            meet={meet}
+            key={i}
+          />
+        )}
       </div>
     </div>
   );
