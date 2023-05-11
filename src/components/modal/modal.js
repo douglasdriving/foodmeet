@@ -1,12 +1,12 @@
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children, small, closebutton }) => {
   if (!isOpen) {
     return null;
   }
 
   return (
     <div className="modal">
-      <div className="modal-content">
-        <span className="modal-close" onClick={onClose}>&times;</span>
+      <div className={small ? 'modal-content-small' : "modal-content"}>
+        {closebutton && <span className="modal-close" onClick={onClose}>&times;</span>}
         {children}
       </div>
     </div>

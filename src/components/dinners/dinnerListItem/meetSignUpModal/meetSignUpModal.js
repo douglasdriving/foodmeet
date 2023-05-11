@@ -1,19 +1,13 @@
 import Modal from "../../../modal/modal"
-// import ProfileBubble from "../../../profileBubble/profileBubble";
 import { getDateTimeText } from "../../../../scripts/dateTimeFunction";
 import GuestList from "./guestList/guestList";
-import { useEffect } from "react";
 
-export default function MeetSignUpModal({ meet, close }) {
+export default function MeetSignUpModal({ meet, close, username}) {
 
   const { restaurant, datetime, seats, name, invitation, map, guests } = meet;
 
-  // useEffect(() => {
-  //   console.log('guests: ', guests);
-  // }, [guests]);
-
   return (
-    <Modal isOpen={true} onClose={() => close()}>
+    <Modal isOpen={true} onClose={() => close()} closebutton>
       <h2 style={{ marginTop: 0, marginBottom: '0.5rem' }}>Meet at {restaurant}</h2>
       <p>{invitation}</p>
       <p>📅 {getDateTimeText(datetime)}</p>
@@ -22,7 +16,7 @@ export default function MeetSignUpModal({ meet, close }) {
       <GuestList
         guests={guests}
         seats={seats}
-        currentUser='Carlos'
+        currentUser={username}
         host={name}
       />
 

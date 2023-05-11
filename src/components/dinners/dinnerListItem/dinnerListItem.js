@@ -3,7 +3,7 @@ import { getDateTimeText } from "../../../scripts/dateTimeFunction";
 import MeetSignUpModal from "./meetSignUpModal/meetSignUpModal";
 import { useState } from "react";
 
-export default function DinnerListItem({ meet }) {
+export default function DinnerListItem({ meet, username }) {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -35,7 +35,7 @@ export default function DinnerListItem({ meet }) {
         <p style={{ marginBottom: 0, color: (seatsTaken === meet.seats ? 'red' : 'black') }}>{seatsTaken}/{meet.seats}</p>
       </div>
 
-      {isOpen && <MeetSignUpModal meet={meet} close={closeModal} />}
+      {isOpen && <MeetSignUpModal meet={meet} close={closeModal} username={username} />}
 
     </>
   );
