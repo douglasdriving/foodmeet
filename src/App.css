@@ -110,6 +110,16 @@ button {
   box-sizing: border-box;
 }
 
+.modal-content-small {
+  background: #282c34;
+  padding: 2rem;
+  border-radius: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
 .modal-close {
   position: absolute;
   top: 10px;

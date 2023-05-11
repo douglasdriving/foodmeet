@@ -2,6 +2,7 @@ import DinnerListItem from "./dinnerListItem/dinnerListItem";
 import CreateMeetModal from "./createMeetModal/createMeetModal";
 import { useState } from 'react';
 import { getDateTime } from "../../scripts/dateTimeFunction";
+import SmallModal from "../modal/smallModal";
 
 export default function Dinners() {
 
@@ -61,6 +62,11 @@ export default function Dinners() {
           />
         )}
       </div>
+      <SmallModal isOpen={true}>
+        <h3>Welcome to FoodMeet!</h3>
+        <p>Start by setting your name</p>
+        <input type="text" />
+      </SmallModal>
     </div>
   );
 }
