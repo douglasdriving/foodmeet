@@ -12,15 +12,14 @@ export default function MeetSignUpModal({ meet, close }) {
       <div style={{ padding: '0.5rem' }}>
         <h2 style={{ marginTop: 0, marginBottom: '0.5rem' }}>Meet at {restaurant}</h2>
         <p>{invitation}</p>
-        <p>👤 Organized by {name}</p>
         <p>📅 {getDateTimeText(datetime)}</p>
-        <p>🪑 {seats} seats</p>
         <p>📍 <a style={{ wordBreak: 'break-all', color: 'lightblue' }} href={map}>{map}</a></p>
         
         <GuestList
-          guests={[name, 'Jacob', 'Ivan', 'Josefina']}
+          guests={['Jacob', 'Ivan', 'Josefina']}
           seats={seats}
           currentUser='Carlos'
+          host={name}
         />
 
       </div>
