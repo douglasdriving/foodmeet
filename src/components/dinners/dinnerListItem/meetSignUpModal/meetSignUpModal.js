@@ -1,6 +1,7 @@
 import Modal from "../../../modal/modal"
 // import ProfileBubble from "../../../profileBubble/profileBubble";
 import { getDateTimeText } from "../../../../scripts/dateTimeFunction";
+import GuestList from "./guestList/guestList";
 
 export default function MeetSignUpModal({ meet, close }) {
 
@@ -15,6 +16,13 @@ export default function MeetSignUpModal({ meet, close }) {
         <p>📅 {getDateTimeText(datetime)}</p>
         <p>🪑 {seats} seats</p>
         <p>📍 <a style={{ wordBreak: 'break-all', color: 'lightblue' }} href={map}>{map}</a></p>
+        
+        <GuestList
+          guests={[name, 'Jacob', 'Ivan', 'Josefina']}
+          seats={seats}
+          currentUser='Carlos'
+        />
+
       </div>
     </Modal>
   );
