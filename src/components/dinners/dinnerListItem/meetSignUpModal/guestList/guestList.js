@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function GuestList({ guests, seats, currentUser, host }) {
+export default function GuestList({ guests, seats, currentUser, host, addGuest, removeGuest }) {
 
 
   const [seatsTaken, setSeatsTaken] = useState(guests.slice(0, seats - 1));
@@ -17,6 +17,7 @@ export default function GuestList({ guests, seats, currentUser, host }) {
     } else {
       setWaitList([...waitlist, currentUser]);
     }
+    addGuest(currentUser);
   };
 
   const leaveSeat = () => {
@@ -26,6 +27,7 @@ export default function GuestList({ guests, seats, currentUser, host }) {
     } else {
       setWaitList(waitlist.filter(guest => guest !== currentUser))
     }
+    removeGuest(currentUser);
   };
 
   const emptySeats = Array(seats - seatsTaken.length - 1).fill('Empty seat');

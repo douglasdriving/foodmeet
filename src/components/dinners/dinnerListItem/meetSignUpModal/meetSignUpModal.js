@@ -2,7 +2,7 @@ import Modal from "../../../modal/modal"
 import { getDateTimeText } from "../../../../scripts/dateTimeFunction";
 import GuestList from "./guestList/guestList";
 
-export default function MeetSignUpModal({ meet, close, username}) {
+export default function MeetSignUpModal({ meet, close, username, addGuest, removeGuest }) {
 
   const { restaurant, datetime, seats, name, invitation, map, guests } = meet;
 
@@ -18,6 +18,8 @@ export default function MeetSignUpModal({ meet, close, username}) {
         seats={seats}
         currentUser={username}
         host={name}
+        addGuest={(g) => addGuest(meet.id, g)}
+        removeGuest={(g) => { removeGuest(meet.id, g) }}
       />
 
     </Modal>
