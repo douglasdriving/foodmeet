@@ -12,18 +12,18 @@ export default function CreateMeetConfirmation(props) {
   const time = datetimeObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div style={{ height: '100%', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
       <h1>Meet Created!</h1>
       <b>Your meet is now visible and others can sign up for it.</b>
 
       <div style={{
         textAlign: 'left',
-        // border: '2px solid white',
         padding: '1rem',
         borderRadius: '1rem',
         marginTop: '1rem',
         backgroundColor: 'white',
         color: 'black',
+        marginBottom: '1rem',
       }}>
         <h3 style={{ marginTop: 0, marginBottom: '0.5rem' }}>Meet at {restaurant}</h3>
         <p>{invitation}</p>
@@ -34,7 +34,7 @@ export default function CreateMeetConfirmation(props) {
         <p>📍 <a style={{ wordBreak: 'break-all' }} href={map}>{map}</a></p>
       </div>
 
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <CalendarButton
           eventTitle={`Meet at ${restaurant}`}
           eventDescription={invitation}
@@ -42,7 +42,11 @@ export default function CreateMeetConfirmation(props) {
           endDate={new Date(datetimeObj.getTime() + 3 * 60 * 60 * 1000)}
           googleMapsLink={map}
         />
-        <button onClick={props.closeModal} style={{ padding: '1rem', marginTop: '1rem', backgroundColor: 'gray'}}>Close</button>
+        <button
+          onClick={props.closeModal}
+          style={{backgroundColor: 'gray' }}>
+          Close
+        </button>
       </div>
 
     </div>
