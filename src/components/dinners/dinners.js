@@ -3,6 +3,7 @@ import CreateMeetModal from "./createMeetModal/createMeetModal";
 import { useState } from 'react';
 import SetNameModal from "./setNameModal/setNameModal";
 import existingMeets from "./existingMeets";
+import FeedbackButton from "./feedbackButton/feedbackButton";
 
 export default function Dinners() {
 
@@ -43,7 +44,6 @@ export default function Dinners() {
           </p>
           <div style={{
             overflowY: 'scroll', // Enable vertical scrolling
-            flex: 1,
             marginBottom: '1rem',
           }}>
             {meets.map((meet, i) =>
@@ -57,6 +57,13 @@ export default function Dinners() {
             )}
           </div>
           <CreateMeetModal addMeet={addMeet} username={username} />
+          <div style={{ flex: 1 }} />
+          <div style={{
+            height: '1px',
+            backgroundColor: 'white',
+            marginBottom: '1rem',
+          }}></div>
+          <FeedbackButton />
         </>
       }
       <SetNameModal setName={setUsername} />
