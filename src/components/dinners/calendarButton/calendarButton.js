@@ -13,7 +13,7 @@ function CalendarButton(props) {
   };
 
   return (
-    <button onClick={createCalendarEvent}>Add To Google Calendar</button>
+    <button onClick={createCalendarEvent}>+ Google Calendar</button>
   );
 }
 

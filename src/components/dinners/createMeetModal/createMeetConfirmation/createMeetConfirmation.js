@@ -34,15 +34,16 @@ export default function CreateMeetConfirmation(props) {
         <p>📍 <a style={{ wordBreak: 'break-all' }} href={map}>{map}</a></p>
       </div>
 
-      <CalendarButton
-        eventTitle={`Meet at ${restaurant}`}
-        eventDescription={invitation}
-        startDate={datetimeObj}
-        endDate={new Date(datetimeObj.getTime() + 3 * 60 * 60 * 1000)}
-        googleMapsLink={map}
-      />
-
-      <button onClick={props.closeModal} style={{ padding: '1rem', marginTop: '1rem', backgroundColor: 'gray', minWidth: '50vw' }}>Close</button>
+      <div style={{ display: 'flex' }}>
+        <CalendarButton
+          eventTitle={`Meet at ${restaurant}`}
+          eventDescription={invitation}
+          startDate={datetimeObj}
+          endDate={new Date(datetimeObj.getTime() + 3 * 60 * 60 * 1000)}
+          googleMapsLink={map}
+        />
+        <button onClick={props.closeModal} style={{ padding: '1rem', marginTop: '1rem', backgroundColor: 'gray'}}>Close</button>
+      </div>
 
     </div>
   );

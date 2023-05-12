@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import CalendarButton from '../../../calendarButton/calendarButton';
 
-export default function GuestList({ guests, seats, currentUser, host, addGuest, removeGuest }) {
+export default function GuestList(props) {
 
+  const { currentUser, addGuest, removeGuest, meet } = props;
+  const { guests, seats, name: host, } = meet;
 
   const [seatsTaken, setSeatsTaken] = useState(guests.slice(0, seats - 1));
   const [waitlist, setWaitList] = useState(guests.slice(seats - 1));
@@ -115,7 +118,16 @@ export default function GuestList({ guests, seats, currentUser, host, addGuest, 
             make sure to leave your seat for someone else
             at least 3h before the starting time
           </p>
-          <button onClick={leaveSeat} style={leaveButtonStyle}>Leave</button>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <button onClick={leaveSeat} style={leaveButtonStyle}>Leave</button>
+            <CalendarButton
+              eventTitle={`Meet at ${meet.restaurant}`}
+              eventDescription={meet.invitation}
+              startDate={meet.datetime}
+              endDate={new Date(new Date(meet.datetime).getTime() + 2 * 60 * 60 * 1000)}
+              googleMapsLink={meet.map}
+            />
+          </div>
         </>
         :
         <button onClick={joinSeat} style={joinButtonStyle}>Join</button>
