@@ -37,8 +37,10 @@ export default function Dinners() {
       {
         (username.length !== 0) &&
         <>
-          <p style={{textAlign: 'left'}}>Hello <b>{username}</b>!</p>
-          <p style={{textAlign: 'left'}}>These are the current food meets in <b>Buenos Aires</b></p>
+          <p style={{ textAlign: 'left' }}>Hello <b>{username}</b>!</p>
+          <p style={{ textAlign: 'left' }}>
+            These are the upcoming food meets in <b>Buenos Aires</b>
+          </p>
           <div style={{
             overflowY: 'scroll', // Enable vertical scrolling
             flex: 1,
@@ -54,7 +56,7 @@ export default function Dinners() {
               />
             )}
           </div>
-          <CreateMeetModal addMeet={addMeet} username={username}/>
+          <CreateMeetModal addMeet={addMeet} username={username} />
         </>
       }
       <SetNameModal setName={setUsername} />

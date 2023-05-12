@@ -33,9 +33,9 @@ export default function DinnerListItem({ meet, username, addGuest, removeGuest }
   }
 
   function userJoinedStatus() {
+    if (meet.name === username) return 'host'
     if (meet.guests.includes(username)) {
-      if (meet.name === username) return 'host'
-      else if (meet.guests.indexOf(username) < meet.seats - 1) return 'joined'
+      if (meet.guests.indexOf(username) < meet.seats - 1) return 'joined'
       else return 'on waitlist'
     }
     else return '';
@@ -46,6 +46,7 @@ export default function DinnerListItem({ meet, username, addGuest, removeGuest }
     let color = 'white';
     if (status === 'joined') color = 'lightgreen';
     else if (status === 'on waitlist') color = 'orange';
+    else if (status === 'host') color = 'lightblue';
     return (
       <div style={{ ...joinStatusDivStyle, backgroundColor: color }}>
         <p style={joinStatusTextStyle}>{status}</p>
@@ -60,7 +61,7 @@ export default function DinnerListItem({ meet, username, addGuest, removeGuest }
         className="dinnerListItem"
         onClick={handleOnClick}
       >
-        <div style={{textAlign: 'left'}}>
+        <div style={{ textAlign: 'left' }}>
           <b>{meet.restaurant}</b>
           <p style={{ marginBottom: 0 }}>{dateString}</p>
         </div>

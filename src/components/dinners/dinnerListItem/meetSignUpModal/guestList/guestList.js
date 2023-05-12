@@ -67,8 +67,8 @@ export default function GuestList(props) {
         <b style={{ margin: 0 }}>Joined</b>
 
         <ol style={guestListStyle}>
-          <li>
-            {host} (organizer)
+          <li style={{ color: 'yellow' }}>
+            {host} (Host🏠)
           </li>
           {seatsTaken.map((guest, index) =>
             < li key={index} >
@@ -102,35 +102,40 @@ export default function GuestList(props) {
 
 
 
-      {joined() ?
-        <>
-          {
-            seatsTaken.includes(currentUser) ?
-              <p>You have a seat!</p>
-              :
+      {(host !== currentUser) &&
+
+        (
+          joined() ?
+            <>
+              {
+                seatsTaken.includes(currentUser) ?
+                  <p>You have a seat!</p>
+                  :
+                  <p>
+                    You are on the waitlist!
+                    You will be notified via email if a spot opens up for you
+                  </p>
+              }
               <p>
-                You are on the waitlist!
-                You will be notified via email if a spot opens up for you
+                If you can't make it,
+                make sure to leave your seat for someone else
+                at least 3h before the starting time
               </p>
-          }
-          <p>
-            If you can't make it,
-            make sure to leave your seat for someone else
-            at least 3h before the starting time
-          </p>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <button onClick={leaveSeat} style={leaveButtonStyle}>Leave</button>
-            <CalendarButton
-              eventTitle={`Meet at ${meet.restaurant}`}
-              eventDescription={meet.invitation}
-              startDate={meet.datetime}
-              endDate={new Date(new Date(meet.datetime).getTime() + 2 * 60 * 60 * 1000)}
-              googleMapsLink={meet.map}
-            />
-          </div>
-        </>
-        :
-        <button onClick={joinSeat} style={joinButtonStyle}>Join</button>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <button onClick={leaveSeat} style={leaveButtonStyle}>Leave</button>
+                <CalendarButton
+                  eventTitle={`Meet at ${meet.restaurant}`}
+                  eventDescription={meet.invitation}
+                  startDate={meet.datetime}
+                  endDate={new Date(new Date(meet.datetime).getTime() + 2 * 60 * 60 * 1000)}
+                  googleMapsLink={meet.map}
+                />
+              </div>
+            </>
+            :
+            <button onClick={joinSeat} style={joinButtonStyle}>Join</button>
+        )
+
       }
 
     </>
