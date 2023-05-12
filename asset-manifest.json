@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/foodmeet/static/css/main.e8505fc8.css",
-    "main.js": "/foodmeet/static/js/main.ed1b96e0.js",
+    "main.css": "/foodmeet/static/css/main.0de9008d.css",
+    "main.js": "/foodmeet/static/js/main.b4486d72.js",
     "static/js/787.a36313f3.chunk.js": "/foodmeet/static/js/787.a36313f3.chunk.js",
     "static/media/dinner.jpg": "/foodmeet/static/media/dinner.eb592a4c463edfedc563.jpg",
     "index.html": "/foodmeet/index.html",
-    "main.e8505fc8.css.map": "/foodmeet/static/css/main.e8505fc8.css.map",
-    "main.ed1b96e0.js.map": "/foodmeet/static/js/main.ed1b96e0.js.map",
+    "main.0de9008d.css.map": "/foodmeet/static/css/main.0de9008d.css.map",
+    "main.b4486d72.js.map": "/foodmeet/static/js/main.b4486d72.js.map",
     "787.a36313f3.chunk.js.map": "/foodmeet/static/js/787.a36313f3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8505fc8.css",
-    "static/js/main.ed1b96e0.js"
+    "static/css/main.0de9008d.css",
+    "static/js/main.b4486d72.js"
   ]
 }
