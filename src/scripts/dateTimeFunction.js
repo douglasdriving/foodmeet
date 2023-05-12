@@ -22,10 +22,10 @@ export function getDateTimeText(date) {
   const dayOfWeek = days[datetimeObj.getDay()];
   const timeText = datetimeObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   const dateString = dateObj.getDate();
-  
+
   const monthNr = dateObj.getMonth() + 1;
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-  const monthText = months[dateObj.getMonth()];
+  const monthText = months[monthNr - 1];
 
   if (dateString === today.getDate()) {
     return 'Today ' + timeText;
@@ -33,7 +33,7 @@ export function getDateTimeText(date) {
     return 'Tomorrow ' + timeText;
   } else if (datetimeObj > inOneWeek)
     return dateString + ' ' + monthText + ' ' + timeText;
-  {
+  else {
     return dayOfWeek + ' ' + timeText;
   }
 }

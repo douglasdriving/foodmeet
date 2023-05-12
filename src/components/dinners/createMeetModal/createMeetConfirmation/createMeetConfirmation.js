@@ -1,15 +1,10 @@
-// import { type } from "@testing-library/user-event/dist/type";
-// import { useEffect } from "react";
 import CalendarButton from "../../calendarButton/calendarButton";
+import { getDateTimeText } from "../../../../scripts/dateTimeFunction";
 
 export default function CreateMeetConfirmation(props) {
 
   const { restaurant, datetime, seats, name, invitation, map } = props;
-
-  //turn datetime into text that displays dae and time
   const datetimeObj = new Date(datetime);
-  const date = datetimeObj.toLocaleDateString();
-  const time = datetimeObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   return (
     <div style={{ height: '100%', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -27,8 +22,7 @@ export default function CreateMeetConfirmation(props) {
       }}>
         <h3 style={{ marginTop: 0, marginBottom: '0.5rem' }}>Meet at {restaurant}</h3>
         <p>{invitation}</p>
-        <p>📅 {date}</p>
-        <p>⏰ {time}</p>
+        <p>📅 {getDateTimeText(datetime)}</p>
         <p>👤 {name}</p>
         <p>🪑 {seats} seats</p>
         <p>📍 <a style={{ wordBreak: 'break-all' }} href={map}>{map}</a></p>
@@ -44,7 +38,7 @@ export default function CreateMeetConfirmation(props) {
         />
         <button
           onClick={props.closeModal}
-          style={{backgroundColor: 'gray' }}>
+          style={{ backgroundColor: 'gray' }}>
           Close
         </button>
       </div>
