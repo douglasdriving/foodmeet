@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-export default function CreateMeetForm({ create }) {
+export default function CreateMeetForm({ create, username }) {
 
   const initialFormState = {
     restaurant: '',
     map: '',
     datetime: '',
     seats: '',
-    name: '',
+    name: username,
     invitation: ''
   };
 

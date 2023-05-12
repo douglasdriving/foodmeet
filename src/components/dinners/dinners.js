@@ -54,7 +54,7 @@ export default function Dinners() {
               />
             )}
           </div>
-          <CreateMeetModal addMeet={addMeet} />
+          <CreateMeetModal addMeet={addMeet} username={username}/>
         </>
       }
       <SetNameModal setName={setUsername} />

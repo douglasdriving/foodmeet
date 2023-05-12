@@ -97,6 +97,8 @@ export default function GuestList({ guests, seats, currentUser, host, addGuest, 
 
       </div>
 
+
+
       {joined() ?
         <>
           {

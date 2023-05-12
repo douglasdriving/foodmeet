@@ -1,6 +1,7 @@
 import Modal from "../../../modal/modal"
 import { getDateTimeText } from "../../../../scripts/dateTimeFunction";
 import GuestList from "./guestList/guestList";
+import CalendarButton from "../../calendarButton/calendarButton";
 
 export default function MeetSignUpModal({ meet, close, username, addGuest, removeGuest }) {
 
@@ -9,19 +10,27 @@ export default function MeetSignUpModal({ meet, close, username, addGuest, remov
   return (
     <Modal isOpen={true} onClose={() => close()} closebutton>
 
-        <h2 style={{ marginTop: 0, marginBottom: '0.5rem' }}>Meet at {restaurant}</h2>
-        <p>{invitation}</p>
-        <p>📅 {getDateTimeText(datetime)}</p>
-        <p>📍 <a style={{ wordBreak: 'break-all', color: 'lightblue' }} href={map}>{map}</a></p>
+      <h2 style={{ marginTop: 0, marginBottom: '0.5rem' }}>Meet at {restaurant}</h2>
+      <p>{invitation}</p>
+      <p>📅 {getDateTimeText(datetime)}</p>
+      <p>📍 <a style={{ wordBreak: 'break-all', color: 'lightblue' }} href={map}>{map}</a></p>
 
-        <GuestList
-          guests={guests}
-          seats={seats}
-          currentUser={username}
-          host={name}
-          addGuest={(g) => addGuest(meet.id, g)}
-          removeGuest={(g) => { removeGuest(meet.id, g) }}
-        />
+      <GuestList
+        guests={guests}
+        seats={seats}
+        currentUser={username}
+        host={name}
+        addGuest={(g) => addGuest(meet.id, g)}
+        removeGuest={(g) => { removeGuest(meet.id, g) }}
+      />
+
+      <CalendarButton
+        eventTitle={`Meet at ${restaurant}`}
+        eventDescription={invitation}
+        startDate={datetime}
+        endDate={new Date(new Date(datetime).getTime() + 2 * 60 * 60 * 1000)}
+        googleMapsLink={map}
+      />
 
     </Modal>
   );

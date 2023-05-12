@@ -1,5 +1,6 @@
 // import { type } from "@testing-library/user-event/dist/type";
 // import { useEffect } from "react";
+import CalendarButton from "../../calendarButton/calendarButton";
 
 export default function CreateMeetConfirmation(props) {
 
@@ -11,7 +12,7 @@ export default function CreateMeetConfirmation(props) {
   const time = datetimeObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   return (
-    <div style={{ textAlign: 'center'}}>
+    <div style={{ textAlign: 'center' }}>
       <h1>Meet Created!</h1>
       <b>Your meet is now visible and others can sign up for it.</b>
 
@@ -33,7 +34,15 @@ export default function CreateMeetConfirmation(props) {
         <p>📍 <a style={{ wordBreak: 'break-all' }} href={map}>{map}</a></p>
       </div>
 
-      <button onClick={props.closeModal} style={{padding: '1rem', marginTop: '1rem', backgroundColor: 'gray', minWidth: '50vw'}}>Close</button>
+      <CalendarButton
+        eventTitle={`Meet at ${restaurant}`}
+        eventDescription={invitation}
+        startDate={datetimeObj}
+        endDate={new Date(datetimeObj.getTime() + 3 * 60 * 60 * 1000)}
+        googleMapsLink={map}
+      />
+
+      <button onClick={props.closeModal} style={{ padding: '1rem', marginTop: '1rem', backgroundColor: 'gray', minWidth: '50vw' }}>Close</button>
 
     </div>
   );

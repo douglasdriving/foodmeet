@@ -3,7 +3,7 @@ import Modal from '../../modal/modal';
 import CreateMeetForm from './createMeetForm/createMeetForm';
 import CreateMeetConfirmation from './createMeetConfirmation/createMeetConfirmation';
 
-export default function CreateMeetModal({addMeet}) {
+export default function CreateMeetModal({addMeet, username}) {
 
   const [isModalOpen, setModalOpen] = useState(false);
   const [created, setCreated] = useState(false);
@@ -25,9 +25,9 @@ export default function CreateMeetModal({addMeet}) {
 
       <button onClick={() => setModalOpen(true)}>+ Create</button>
 
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <Modal isOpen={isModalOpen} onClose={closeModal} closebutton>
         {!created ?
-          <CreateMeetForm create={onCreate} />
+          <CreateMeetForm create={onCreate} username={username} />
           :
           <CreateMeetConfirmation
             restaurant={meetInfo.restaurant}
