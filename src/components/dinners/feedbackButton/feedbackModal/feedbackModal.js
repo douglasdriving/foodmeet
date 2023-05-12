@@ -29,6 +29,7 @@ export default function FeedbackModal({ open, setOpen }) {
               href='https://forms.gle/5sTgM5AvGEDYvxFy7'
               style={lightLink}
               target="_blank"
+              rel="noreferrer"
             >
               Fill out the feedback form
             </a>
