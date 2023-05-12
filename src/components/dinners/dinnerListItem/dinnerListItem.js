@@ -41,12 +41,6 @@ export default function DinnerListItem({ meet, username, addGuest, removeGuest }
     else return '';
   }
 
-  function itemColor() {
-    if (userJoinedStatus() === 'joined') return 'lightgreen'
-    else if (userJoinedStatus() === 'on waitlist') return 'orange'
-    else return 'white'
-  }
-
   function userJoinedItem() {
     const status = userJoinedStatus();
     let color = 'white';
@@ -66,7 +60,7 @@ export default function DinnerListItem({ meet, username, addGuest, removeGuest }
         className="dinnerListItem"
         onClick={handleOnClick}
       >
-        <div>
+        <div style={{textAlign: 'left'}}>
           <b>{meet.restaurant}</b>
           <p style={{ marginBottom: 0 }}>{dateString}</p>
         </div>

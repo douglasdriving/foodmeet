@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  text-align: left;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,6 +17,9 @@
   background-color: rgba(0, 0, 0, 0.8);
   padding: 2rem;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 .App-logo {

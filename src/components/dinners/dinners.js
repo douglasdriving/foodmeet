@@ -36,17 +36,13 @@ export default function Dinners() {
     <>
       {
         (username.length !== 0) &&
-        <div style={{
-          textAlign: 'left',
-          display: 'flex',
-          flexDirection: 'column',
-          // border: '2px solid red',
-        }}>
-          <p>Hello <b>{username}</b>!</p>
-          <p>These are the current food meets in <b>Buenos Aires</b></p>
+        <>
+          <p style={{textAlign: 'left'}}>Hello <b>{username}</b>!</p>
+          <p style={{textAlign: 'left'}}>These are the current food meets in <b>Buenos Aires</b></p>
           <div style={{
             overflowY: 'scroll', // Enable vertical scrolling
-            flex: 1
+            flex: 1,
+            marginBottom: '1rem',
           }}>
             {meets.map((meet, i) =>
               <DinnerListItem
@@ -59,7 +55,7 @@ export default function Dinners() {
             )}
           </div>
           <CreateMeetModal addMeet={addMeet} />
-        </div>
+        </>
       }
       <SetNameModal setName={setUsername} />
     </>

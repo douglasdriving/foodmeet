@@ -1,8 +1,7 @@
-import Dinners from '../dinners/dinners';
 
 export default function Header() {
   return (
-    <div>
+    <div style={{textAlign: 'center'}}>
       <h1>FoodMeet</h1>
       <p>Eat with others</p>
       <div style={{
@@ -10,7 +9,6 @@ export default function Header() {
         backgroundColor: 'white',
         marginBottom: '1rem',
       }}></div>
-      <Dinners />
     </div>
   );
 }
